@@ -36,10 +36,10 @@ class Script(scripts.Script):
         from PIL import Image
 
         palette_methods = {
-            "libimagequant": Image.Quantize.LIBIMAGEQUANT,
-            "Median cut": Image.Quantize.MEDIANCUT,
-            "Maximum coverage": Image.Quantize.MAXCOVERAGE,
-            "Fast octree": Image.Quantize.FASTOCTREE
+            "libimagequant": Image.LIBIMAGEQUANT,
+            "Median cut": Image.MEDIANCUT,
+            "Maximum coverage": Image.MAXCOVERAGE,
+            "Fast octree": Image.FASTOCTREE
         }
         quantize = palette_methods.get(palette_method, None)
 
@@ -55,7 +55,7 @@ class Script(scripts.Script):
             
             if color_palette > 0:
                 raf = raf.convert("RGB")
-                raf = raf.quantize(colors=int(color_palette), method=quantize, dither=Image.Dither.FLOYDSTEINBERG)
+                raf = raf.quantize(colors=int(color_palette), method=quantize, dither=Image.FLOYDSTEINBERG)
             if rescale:
                 raf = raf.resize((o_width, o_height), Image.NEAREST)
             
